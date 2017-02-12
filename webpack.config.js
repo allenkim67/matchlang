@@ -49,7 +49,7 @@ module.exports = [{
         loader: [
           "style",
           "css?modules&localIdentName=[name]_[local]_[hash:base64:5]",
-          "postcss",
+          "postcss-loader",
           "sass"
         ].join('!')
       },
