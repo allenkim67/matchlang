@@ -63,7 +63,7 @@
     "react-native-config": "^0.1.0",
     "react-native-router-flux": "^3.36.0",
     "react-native-tab-view": "0.0.34",
-    "react-native-vector-icons": "^2.1.0",
+    "react-native-vector-icons": "^4.0.0",
     "react-paginate": "^4.1.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.5.1",
