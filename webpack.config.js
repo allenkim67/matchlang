@@ -2,7 +2,6 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const config = require('./global-config');
-const postcssValues = require('postcss-modules-values');
 
 const envVars = ['NODE_ENV', 'STRIPE_PUBLIC_KEY', 'GOOGLE_TRANSLATE_KEY', 'PLATFORM'];
 
@@ -16,7 +15,6 @@ module.exports = [{
   plugins: [
     new webpack.EnvironmentPlugin(envVars)
   ],
-  postcss: [postcssValues],
   module: {
     loaders: [
       {
@@ -49,7 +47,6 @@ module.exports = [{
         loader: [
           "style",
           "css?modules&localIdentName=[name]_[local]_[hash:base64:5]",
-          "postcss-loader",
           "sass"
         ].join('!')
       },

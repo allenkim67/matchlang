@@ -1,4 +1,4 @@
-@value container-width 840px;
+$container-width: 840px;
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -77,9 +77,9 @@ a {
   width: auto;
 }
 
-@media only screen and (min-width: container-width) {
+@media only screen and (min-width: $container-width) {
   .container {
-    width: container-width;
+    width: $container-width;
   }
 
   .signup {
@@ -93,7 +93,7 @@ a {
   }
 }
 
-@media only screen and (max-width: container-width) {
+@media only screen and (max-width: $container-width) {
   .formsContainer {
     margin: auto;
     width: 90%;

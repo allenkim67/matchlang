@@ -1,4 +1,4 @@
-@value naviLeftPadding 17px;
+$naviLeftPadding: 17px;
 
 .navi {
   background-color: #E9F2F9;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 13px;
-  padding-left: naviLeftPadding;
+  padding-left: $naviLeftPadding;
 }
 
 .logout {
@@ -62,12 +62,12 @@
   margin-bottom: 8px;
   margin-top: 20px;
   color: #565d64;
-  padding-left: naviLeftPadding;
+  padding-left: $naviLeftPadding;
 }
 
 .menuLink {
   composes: truncate from '../../shared.scss';
-  padding-left: naviLeftPadding;
+  padding-left: $naviLeftPadding;
   padding-right: 15px;
   color: #565d64;
 }

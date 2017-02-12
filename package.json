@@ -98,7 +98,6 @@
     "nodemon": "^1.9.2",
     "parallelshell": "^2.0.0",
     "postcss-loader": "^1.2.2",
-    "postcss-modules-values": "^1.2.2",
     "sass-loader": "^4.1.1",
     "selenium-standalone": "^5.8.0",
     "style-loader": "^0.13.1",
