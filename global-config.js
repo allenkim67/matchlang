@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
   envConfig = {
     webpackDevtool: 'eval-source-map',
     messagesLimit: 10,
-    baseUrl: 'http://matchlang.com',
+    baseUrl: 'http://localhost:3000',
     usersPerPage: 6,
     groupsPerPage: 2
   };

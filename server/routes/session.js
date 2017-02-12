@@ -28,8 +28,6 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  try {
-    console.log('loginfjsjdlfsd');
   const v = await sessionValidator.validateLogin(req.body);
 
   if (!v.isValid) {
@@ -48,9 +46,6 @@ router.post('/login', async (req, res) => {
       auth.writeToken(_.pick(user, ['id', 'username']), res);
       res.send(user);
     }
-  }
-  } catch (err) {
-    console.log(err)
   }
 });
 
