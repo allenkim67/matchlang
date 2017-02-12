@@ -1,0 +1,133 @@
+@mixin message {
+  padding: 3px 0 3px 12px;
+  position: relative;
+}
+
+.parentMessage {
+  @include message;
+  cursor: pointer;
+  display: flex;
+  border-bottom: thin solid #eee;
+}
+
+.submessage {
+  @include message;
+  border-left: 6px solid #333;
+  padding: 3px 12px 0 24px;
+  display: flex;
+}
+
+.hasSubmessage {
+  background-color: pink;
+  &:hover {
+    background-color: #ffb2c1;
+  }
+}
+
+.noTag {
+  &:hover {
+    background-color: #f9f9f9;
+  }
+}
+
+@mixin heart {
+  font-size: 23px;
+  margin: 4px 3px;
+}
+
+.tagSave {
+  @include heart;
+  color: dimgrey;
+}
+
+.tagUnsave {
+  @include heart;
+  color: #ff0080;
+}
+
+.error {
+  color: red;
+}
+
+.subchat {
+  margin-left: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+@mixin input {
+  composes: input from './chat.scss'
+}
+
+.submessageInput {
+  @include input;
+  width: calc(100% - 86px);
+}
+
+.sendButton {
+  composes: sendButton from './chat.scss'
+}
+
+.senderName {
+  margin-left: 4px;
+  font-weight: bold;
+  line-height: 15px;
+  color: black;
+}
+
+.speakingLangs {
+  font-size: 11px;
+  color: grey;
+  font-style: italic;
+}
+
+.mText {
+  width: 0;
+  flex-grow: 1;
+  line-height: 30px;
+}
+
+.topPadding {
+  padding-top: 10px;
+}
+
+.arrow {
+  width: 23px;
+  margin-right: 3px;
+}
+
+.correctIcon {
+  color: limegreen;
+}
+
+.wrongIcon {
+  color: red;
+}
+
+.crown {
+  composes: crown from '../../shared.scss';
+}
+
+.emoji {
+  img {
+    margin-bottom: -2px;
+  }
+}
+
+.timestamp {
+  margin-right: 6px;
+  margin-top: 7px;
+  font-size: 14px;
+  font-style: italic;
+  color: grey;
+}
+
+.online {
+  composes: online from '../../shared.scss';
+}
+
+.offline {
+  composes: offline from '../../shared.scss';
+}

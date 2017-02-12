@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0 8px 0;
+  composes: cardMaxWidth from '../../shared.scss';
+}
+
+.title {
+  margin: 0;
+  line-height: 58px;
+}
+
+.groupContainer {
+  composes: cardContainer from '../../shared.scss';
+}
+
+.groupsLoading {
+  composes: loadingCard from '../../shared.scss';
+}
+
+.togglerContainer {
+  width: 180px;
+  margin: 0;
+  .toggler {
+    background: #eee;
+    border: thin solid #ddd;
+  }
+}
+
+.active {
+  color: red;
+}
+
+.paginator {
+  padding: 0;
+  li {
+    margin-right: 5px;
+    display: inline;
+    cursor: pointer;
+  }
+}

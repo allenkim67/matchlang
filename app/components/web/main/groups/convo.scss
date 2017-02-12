@@ -1,0 +1,39 @@
+.scheduledGroups {
+  list-style-type: none;
+  padding: 0;
+}
+
+.startTime {
+  margin-right: 18px;
+}
+
+.crown {
+  composes: crown from '../../shared.scss';
+}
+
+.chatFull {
+  color: #555;
+  font-style: italic;
+}
+
+.groupConvo {
+  composes: card from '../../shared.scss';
+  display: flex;
+}
+
+.groupConvoContent {
+  flex: 1;
+}
+
+.groupName {
+  composes: cardTitle from '../../shared.scss';
+}
+
+.join {
+  composes: button from '../../shared.scss';
+  padding: 9px;
+}
+
+.admin {
+  color: black;
+}

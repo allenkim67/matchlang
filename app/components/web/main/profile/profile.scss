@@ -1,0 +1,90 @@
+@mixin input-width {
+  width: 100%;
+  max-width: 365px;
+}
+
+.container {
+  composes: pure-form from 'purecss';
+  composes: pure-form-aligned from 'purecss';
+  background-color: white;
+  border: solid 1px lightgrey;
+  border-radius: 3px;
+  padding: 20px;
+
+  .controlGroup {
+    .depositAmount {
+      width: 100px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+  }
+}
+
+.form {
+  textarea {
+    @include input-width;
+    height: 100px;
+  }
+
+  input {
+    @include input-width;
+  }
+}
+
+.controlGroup {
+  composes: pure-control-group from 'purecss';
+  label {
+    width: 7em;
+  }
+}
+
+.group {
+  display: inline-block;
+}
+
+.button {
+  composes: button from '../../shared.scss'
+}
+
+#birthdate + input {
+  background-color: white;
+}
+
+.errors {
+  margin-left: 10px;
+  margin-bottom: 32px;
+  color: red;
+}
+
+.langSelectList {
+  display: inline-block;
+  select {
+    margin-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (min-width: 834px) {
+  .addLang {
+    margin-left: 8em;
+  }
+
+  #langSelectLabel {
+    margin-top: 8px;
+    vertical-align: top;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .container {
+    .controlGroup {
+      label {
+        margin-bottom: .3em;
+        text-align: left;
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.username {
+  display: inline-block;
+}
+
+.messageMe {
+  composes: button from '../../shared.scss';
+  padding: 4px;
+  margin-bottom: 9px;
+  margin-left: 7px;
+}
+
+.userDetails {
+  composes: card from '../../shared.scss';
+  line-height: 26px;
+}
+
+.groupList {
+  padding: 0;
+  list-style-type: none;
+}
+
+.noGroups {
+  composes: loadingCard from '../../shared.scss';
+}

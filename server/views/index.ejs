@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MatchLang - Chat with language teachers and friends!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chat room for language learning and practice. Get corrections, translate messages, and save messages for review.">
+  <link href="https://matchlang.com" rel="canonical" />
+</head>
+<body>
+  <div id="content"></div>
+  <script>var SESSION = <%-JSON.stringify(session)%></script>
+  <script>var GOOGLE_LANGS = <%-JSON.stringify(googleLangs)%></script>
+  <script src="/bundle.js"></script>
+  <script>
+    if (<%- JSON.stringify(prod) %>) {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-89085646-1', 'auto');
+      if (SESSION.user.id) {
+        ga('set', 'userId', String(SESSION.user.id));
+      }
+      ga('send', 'pageview');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.chip {
+  display: inline-block;
+  font-size: 13px;
+  border-radius: 16px;
+  padding: 0 4px 0 12px;
+  vertical-align: top;
+}
+
+.close {
+  color: #555;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.howSay {
+  background-color: palegreen;
+}
+
+.correctPlz {
+  background-color: #FFEB3B;
+}
+
+.dontUnderstand {
+  background-color: #C5EFF7;
+}

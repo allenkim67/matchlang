@@ -1,0 +1,81 @@
+.cardContainer {
+  padding: 0;
+  list-style-type: none;
+}
+
+.cardMaxWidth {
+  max-width: 800px;
+}
+
+.card {
+  composes: cardMaxWidth;
+  position: relative;
+  background-color: #fcfdff;
+  padding: 12px;
+  padding-left: 15px;
+  margin-bottom: 13px;
+  border: solid #9aaec1 1px;
+  border-radius: 4px;
+  width: 100%;
+  line-height: 1.3em;
+  label {
+    color: #5b6269;
+    margin-right: 6px;
+  }
+}
+
+.loadingCard {
+  composes: card;
+  color: #666;
+  font-size: larger;
+}
+
+.cardTitle {
+  float: left;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 110%;
+  color: black;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crown {
+  margin-bottom: -2px;
+  margin-right: 5px;
+}
+
+.button {
+  composes: pure-button from 'purecss';
+  background: #1abc9c;
+  color: white;
+}
+
+.status {
+  margin-top: -3px;
+  font-size: small;
+}
+
+.online {
+  composes: status;
+  color: limegreen;
+}
+
+.offline {
+  composes: status;
+  color: grey;
+}
+
+.badge {
+  font-weight: 500;
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: red;
+  color: rgb(255, 255, 255);
+}

@@ -1,0 +1,68 @@
+.container {
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 5px;
+  line-height: 23px;
+}
+
+.numbering {
+  line-height: 2em;
+}
+
+.message {
+  position: relative;
+  padding: 6px 13px;
+  cursor: pointer;
+}
+
+.submessage {
+  padding: 6px 13px;
+  margin-left: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+@mixin heart {
+  font-size: x-large;
+  margin: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tagSave {
+  @include heart;
+  color: dimgrey;
+}
+
+.tagUnsave {
+  @include heart;
+  color: #ff0080;
+}
+
+.messageContent {
+  margin-right: 30px;
+  img, svg {
+    vertical-align: bottom;
+  }
+}
+
+.wrongIcon {
+  composes: wrongIcon from '../chat/message.scss'
+}
+
+.correctIcon {
+  composes: correctIcon from '../chat/message.scss'
+}
+
+.username {
+  font-weight: bold;
+}
+
+.showHide {
+  margin-left: 3px;
+}

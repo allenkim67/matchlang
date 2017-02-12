@@ -1,0 +1,103 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat {
+  overflow-x: hidden;
+  width: 100%;
+  height: calc(100vh - 123px);
+  border: solid lightgrey 1px;
+  border-radius: 3px;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.loadingMessage {
+  height: 100%;
+  font-size: x-large;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sendButton {
+  width: 60px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  background-color: #eee;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 0;
+  border: thin solid lightgray;
+}
+
+.input {
+  -webkit-appearance: none;
+  overflow: hidden;
+  width: calc(100% - 60px);
+  height: 30px;
+  line-height: 25px;
+  border: solid lightgrey 1px;
+  vertical-align: middle;
+  border-radius: 0;
+}
+
+.partnerName {
+  margin: 18px 0;
+  float: left;
+  height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  margin-left: auto;
+}
+
+.leave {
+  margin-top: 20px;
+}
+
+.countdown {
+  width: 100%;
+  font-size: large;
+  background: pink;
+  text-align: center;
+  line-height: 28px;
+  padding: 9px;
+}
+
+.isTyping {
+  margin-top: 4px;
+  font-size: small;
+  font-style: italic;
+  color: #555;
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    height: 10px;
+  }
+
+  .partnerName {
+    display: none;
+  }
+
+  .leave {
+    display: none;
+  }
+
+  .chat {
+    height: calc(100vh - 107px);
+  }
+
+  .price {
+    margin-top: 24px;
+  }
+}

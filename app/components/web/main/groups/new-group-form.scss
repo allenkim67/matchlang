@@ -1,0 +1,35 @@
+.header {
+  margin: 3px 0 15px 0;
+}
+
+.container {
+  composes: pure-form from 'purecss';
+  composes: card from '../../shared.scss';
+  margin-bottom: 15px;
+}
+
+.controlGroup {
+  margin: 7px 0;
+}
+
+.input {
+  width: 100%;
+  max-width: 300px;
+}
+
+.textarea {
+  width: 100%;
+  max-width: 300px;
+  height: 60px;
+}
+
+.createButton {
+  composes: button from '../../shared.scss';
+  font-size: 15px;
+  margin-right: 4px;
+}
+
+.cancelButton {
+  composes: pure-button from 'purecss';
+  font-size: 15px;
+}

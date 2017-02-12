@@ -1,0 +1,18 @@
+@mixin startingStatus {
+  font-size: 80%;
+  font-style: italic;
+}
+
+.startingSoon {
+  @include startingStatus;
+  color: red;
+}
+
+.startedAlready {
+  @include startingStatus;
+  color: grey;
+}
+
+.willStart {
+  @include startingStatus;
+}

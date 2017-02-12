@@ -1,0 +1,180 @@
+@value naviLeftPadding 17px;
+
+.navi {
+  background-color: #E9F2F9;
+  border-right: solid lightblue 1px;
+  width: 220px;
+  overflow: auto;
+  height: 100%;
+}
+
+.logo {
+  width: 85%;
+  margin: 12px 0 0 10px;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 13px;
+  padding-left: naviLeftPadding;
+}
+
+.logout {
+  display: inline;
+  margin-right: 25px;
+}
+
+.modeToggler {
+  cursor: pointer;
+  line-height: 40px;
+  background-color: #9f63c1;
+  color: white;
+  padding-left: 17px;
+  margin: 14px 0 22px 0;
+}
+
+.mode {
+  margin-right: 20px;
+}
+
+:global {
+  .rc-switch {
+    float: right;
+    margin: 9px 20px 0 0;
+  }
+
+  .rc-switch.rc-switch-checked {
+    background-color: #5abfde;
+    border: 1px solid #5abfde;
+  }
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuHeader {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  color: #565d64;
+  padding-left: naviLeftPadding;
+}
+
+.menuLink {
+  composes: truncate from '../../shared.scss';
+  padding-left: naviLeftPadding;
+  padding-right: 15px;
+  color: #565d64;
+}
+
+.menuItem {
+  cursor: pointer;
+  line-height: 36px;
+
+  &:hover {
+    background-color: #5ABFDE;
+    .menuLink {
+      color: whitesmoke;
+      padding-right: 4px;
+    }
+
+    .leave {
+      display: block;
+      margin-top: 6px;
+      margin-right: 8px;
+      font-size: 26px;
+      color: #ffffff;
+    }
+  }
+
+  // same as hover
+  .menuOpen {
+    background-color: #5ABFDE;
+    .menuLink {
+      color: whitesmoke;
+      padding-right: 0;
+    }
+  }
+
+  .menuLink {
+    display: block;
+    width: 100%;
+  }
+}
+
+.menuItemSelected {
+  background-color: #5ABFDE;
+  .menuLink {
+    color: whitesmoke;
+  }
+}
+
+.badge {
+  composes: badge from '../../shared.scss';
+  margin-right: 5px;
+}
+
+.credits {
+  color: #565d64;
+  margin-left: 17px;
+}
+
+.convoListing {
+  display: flex;
+  justify-content: space-between;
+  &:hover .more {
+    display: inline;
+  }
+}
+
+.leave {
+  display: none;
+}
+
+.menuIcon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.menuItemContent {
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.newlyCreated {
+  composes: pure-button from 'purecss';
+  background: #3ebd74;
+  color: white;
+  font-size: 14px;
+  padding: 4px;
+  margin: -2px 2px 0 -5px;
+}
+
+@mixin status {
+  margin-top: -3px;
+  font-size: smaller;
+}
+
+.online {
+  composes: online from '../../shared.scss';
+}
+
+.offline {
+  composes: offline from '../../shared.scss';
+}
+
+.socialContainer {
+  margin-left: 13px;
+  margin-bottom: 10px;
+}
+
+.social {
+  width: 22px;
+  margin-right: 6px;
+}

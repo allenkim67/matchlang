@@ -1,0 +1,25 @@
+.editableMessage {
+  display: inline-block;
+  width: calc(100% - 82px);
+}
+
+@mixin button {
+  composes: pure-button from 'purecss';
+  margin: -7px 8px 0 0;
+  line-height: 10px;
+}
+
+.cancelButton {
+  @include button;
+}
+
+.editButton {
+  @include button;
+  background: #1abc9c;
+  color: white;
+}
+
+.editInput {
+  composes: input from './chat.scss';
+  width: 100%;
+}

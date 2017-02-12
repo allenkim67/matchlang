@@ -1,0 +1,101 @@
+.active {
+  color: red;
+}
+
+.paginator {
+  padding: 0;
+  li {
+    margin-right: 5px;
+    display: inline;
+    cursor: pointer;
+  }
+}
+
+.filters {
+  composes: pure-form from 'purecss';
+  display: inline-block;
+  padding: 0 13px 13px 13px;
+  background-color: #E9F2F9;
+  border: solid lightblue 1px;
+  border-radius: 3px;
+}
+
+.langFilter {
+  display: inline-block;
+  margin: 13px 50px 0 0;
+  select {
+    display: block;
+    margin-top: 8px;
+  }
+}
+
+.userContainer {
+  composes: cardContainer from '../../shared.scss';
+}
+
+.user {
+  composes: card from '../../shared.scss';
+}
+
+.usersLoading {
+  composes: loadingCard from '../../shared.scss';
+}
+
+@mixin activity-status {
+  float: right;
+  font-size: 80%;
+}
+
+.username {
+  composes: cardTitle from '../../shared.scss';
+  color: black;
+}
+
+.lastLogin {
+  @include activity-status;
+  color: #565d64;
+}
+
+.onlineNow {
+  @include activity-status;
+  color: green;
+}
+
+.hr {
+  clear: both;
+}
+
+.header {
+  vertical-align: sub;
+  display: inline-block;
+}
+
+.refreshIcon {
+  font-size: x-large;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.messageMe {
+  composes: button from '../../shared.scss';
+  padding: 9px;
+}
+
+.online {
+  composes: online from '../../shared.scss';
+  margin-right: 4px;
+}
+
+.offline {
+  composes: offline from '../../shared.scss';
+  margin-right: 4px;
+}
+
+.name {
+  color: black;
+  vertical-align: text-top;
+}
+
+.star {
+  margin-bottom: 3px;
+}
