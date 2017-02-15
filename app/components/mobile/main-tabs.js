@@ -9,7 +9,7 @@ import { primaryColor } from './style-theme'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 64
+    marginTop: 54
   },
 
   tabbar: {

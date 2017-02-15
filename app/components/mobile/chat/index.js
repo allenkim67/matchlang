@@ -73,8 +73,8 @@ class Chat extends Component {
 
 const style = {
   container: {
-    paddingTop: 64,
-    height: Dimensions.get('window').height
+    flex: 1,
+    paddingTop: 54
   },
   list: {
     flex: 1
