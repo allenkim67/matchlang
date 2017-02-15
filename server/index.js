@@ -1,5 +1,6 @@
 require('babel-polyfill');
 
+const fs = require('fs');
 const express = require('express');
 const logger = require('./logger');
 const Knex = require('knex');
@@ -81,10 +82,33 @@ app.get('/*', async (req, res) => {
   });
 });
 
-const http = require('http').Server(app);
-http.listen(process.env.PORT || 3000, () => console.log(`listening at port ${process.env.PORT || 3000}`));
-socketSetup(http);
+let server;
 
+if (process.env.NODE_ENV === 'production') {
+  //// listen https
+   server = require('https')
+    .createServer({
+      key: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/privkey.pem'),
+      cert: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/fullchain.pem'),
+      ca: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/chain.pem')
+    }, app)
+    .listen(443, () => console.log('listening at port 443'));
+
+  // redirect to https
+  const http = express()
+    .get('*',function(req, res){
+      res.redirect(`https://${req.hostname}${req.url}`);
+    })
+    .listen(80);
+} else {
+  server = require('http')
+    .createServer(app)
+    .listen(3000, () => console.log('listening at port 3000'));
+}
+
+socketSetup(server);
+
+// log uncaught exceptions (includes promises)
 process.on('uncaughtException', function(error) {
   logger.debug(error);
 });
