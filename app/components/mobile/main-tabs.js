@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import UserBrowser from './user-browser'
 import Convos from './convos'
 import { primaryColor } from './style-theme'
+import PushNotification from './push-notification'
 
 const styles = StyleSheet.create({
   container: {
@@ -60,17 +61,20 @@ export default class MainTabs extends Component {
 
   render() {
     return (
-      <TabViewAnimated
-        style={styles.container}
-        navigationState={this.state}
-        renderScene={this._renderScene}
-        renderHeader={props => <TabBarTop
-                                 {...props}
-                                 style={styles.tabbar}
-                                 renderIcon={this._renderIcon}
-                               />}
-        onRequestChangeTab={i => this.setState({index: i})}
-      />
+      <View style={{flex: 1}}>
+        <TabViewAnimated
+          style={styles.container}
+          navigationState={this.state}
+          renderScene={this._renderScene}
+          renderHeader={props => <TabBarTop
+                                   {...props}
+                                   style={styles.tabbar}
+                                   renderIcon={this._renderIcon}
+                                 />}
+          onRequestChangeTab={i => this.setState({index: i})}
+        />
+        <PushNotification/>
+      </View>
     );
   }
 }
