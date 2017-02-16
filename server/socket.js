@@ -44,6 +44,10 @@ module.exports = http => {
       logout();
     });
 
+    socket.on('register_mobile', id => {
+      logger.debug('register_mobile', id);
+    });
+
     socket.on('message', async ({message, user}) => {
       //const user = auth.verify(authToken);
       let sids = [];

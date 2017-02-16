@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
-import Icon from 'react-native-vector-icons/Entypo';
+import React, { Component } from 'react'
+import { View, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
+import { TabViewAnimated, TabBarTop } from 'react-native-tab-view'
+import Icon from 'react-native-vector-icons/Entypo'
 import UserBrowser from './user-browser'
 import Convos from './convos'
 import { primaryColor } from './style-theme'
 import PushNotification from './push-notification'
+import { registerMobile } from '../../actions/push-notification'
 
 const styles = StyleSheet.create({
   container: {
@@ -29,6 +31,11 @@ const styles = StyleSheet.create({
   }
 });
 
+function mapStateToProps(state) {
+  return {}
+}
+
+@connect(mapStateToProps, {registerMobile})
 export default class MainTabs extends Component {
   state = {
     index: 0,
@@ -73,7 +80,7 @@ export default class MainTabs extends Component {
                                  />}
           onRequestChangeTab={i => this.setState({index: i})}
         />
-        <PushNotification/>
+        <PushNotification registerMobile={this.props.registerMobile}/>
       </View>
     );
   }
