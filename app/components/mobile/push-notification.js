@@ -4,20 +4,19 @@ import PushNotification from 'react-native-push-notification'
 export default class extends Component {
   componentDidMount() {
     PushNotification.configure({
-      onRegister: function(token) {
+      onRegister: token => {
         this.props.registerMobile(token.token);
       },
 
-      onNotification: function(notification) {
-        console.log( 'NOTIFICATION:', notification );
+      onNotification: notification => {
+        alert(JSON.stringify(notification));
+
+        PushNotification.localNotification({
+          message: notification.data.message
+        });
       },
 
-      senderID: "matchlang-149620"
-    });
-
-    PushNotification.localNotificationSchedule({
-      message: "My Notification Message", // (required)
-      date: new Date(Date.now() + (15 * 1000)) // in 60 secs
+      senderID: "727270660645"
     });
   }
 

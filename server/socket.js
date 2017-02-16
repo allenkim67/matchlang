@@ -7,6 +7,9 @@ const _ = require('lodash');
 const logger = require('./logger');
 const fs = require('fs');
 const moment = require('moment');
+const gcm = require('node-gcm');
+
+const sender = new gcm.Sender('AAAAqVS1miU:APA91bHsVuvTKHtHbtFhVh0Nt7R_hx9XYE_ETonQf6Q-iZgt4LAcQihZahAMLYlDN--FxpEd4LoK_ztMtpBserOIoT8y0ax25MT9614JDL0mHfoZHpAqtRIHYhO_24adrwJ3Oq6pj2Ck');
 
 module.exports = http => {
   const io = socketIo(http);
@@ -45,7 +48,17 @@ module.exports = http => {
     });
 
     socket.on('register_mobile', id => {
-      logger.debug('register_mobile', id);
+      const data = {
+        data: {
+          message: 'hello world'
+        }
+      };
+      const message = new gcm.Message({data});
+      const regTokens = [id];
+
+      sender.send(message, { registrationTokens: regTokens }, function (err, response) {
+        if (err) logger.debug('send mobile error', err);
+      });
     });
 
     socket.on('message', async ({message, user}) => {
