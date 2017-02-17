@@ -31,6 +31,19 @@ class Chat extends Component {
 
   render() {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id !== r2.id});
+    const input = (
+      <View>
+        <Item regular style={style.inputContainer}>
+          <Input
+            style={style.input}
+            onSubmitEditing={this.send}
+            onChangeText={this.onChangeHandler}
+            placeholder='Write message...'
+            value={this.state.inputValue}
+          />
+        </Item>
+      </View>
+    );
 
     return (
       <View style={style.container}>
@@ -40,17 +53,7 @@ class Chat extends Component {
           dataSource={ds.cloneWithRows(this.props.parentMessages)}
           renderRow={this.message}
         />
-        <View>
-          <Item regular style={style.inputContainer}>
-            <Input
-              style={style.input}
-              onSubmitEditing={this.send}
-              onChangeText={this.onChangeHandler}
-              placeholder='Write message...'
-              value={this.state.inputValue}
-            />
-          </Item>
-        </View>
+        {input}
         <Spinner visible={this.props.loading} textContent={'Loading messages...'} textStyle={{color: '#FFF'}}/>
       </View>
     );

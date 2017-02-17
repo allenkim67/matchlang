@@ -15,8 +15,8 @@ function mapStateToProps(state) {
 @connect(mapStateToProps, {login})
 class Login extends Component {
   state = {
-    username: '',
-    password: ''
+    username: 'allen',
+    password: 'asdfasdf'
   };
 
   render() {

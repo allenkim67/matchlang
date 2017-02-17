@@ -40,7 +40,6 @@ const style = {
     fontWeight: 'bold'
   },
   message: {
-    flexDirection: 'row',
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#dedede'
