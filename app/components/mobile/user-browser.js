@@ -7,12 +7,14 @@ import { usersSelector } from '../../selectors/users'
 import { View } from 'react-native'
 import routeTo from '../../route-action'
 import { Text, List, ListItem } from 'native-base'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 function mapStateToProps(state) {
   return {
     users: state.users.users,
     session: state.session,
-    usersList: usersSelector(state)
+    usersList: usersSelector(state),
+    loading: state.users.loading
   }
 }
 
@@ -29,11 +31,14 @@ class Auth extends Component {
 
   render() {
     return (
-      <List
-        removeClippedSubviews={false}
-        dataArray={this.props.usersList}
-        renderRow={this.user}
-      />
+      <View>
+        <List
+          removeClippedSubviews={false}
+          dataArray={this.props.usersList}
+          renderRow={this.user}
+        />
+        <Spinner visible={this.props.loading} textContent={'Loading users...'} textStyle={{color: '#FFF'}}/>
+      </View>
     );
   }
 

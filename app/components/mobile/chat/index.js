@@ -8,12 +8,14 @@ import { setCurrentConvo } from '../../../actions/convos'
 import { Content, Input, Item } from 'native-base'
 import { View, Dimensions, ListView } from 'react-native'
 import Message from './message'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 function mapStateToProps(state) {
   return {
     parentMessages: parentMessages(state),
     currentConvo: currentConvo(state),
-    childMessages: state.messages.messages.children
+    childMessages: state.messages.messages.children,
+    loading: state.messages.loading
   }
 }
 
@@ -49,6 +51,7 @@ class Chat extends Component {
             />
           </Item>
         </View>
+        <Spinner visible={this.props.loading} textContent={'Loading messages...'} textStyle={{color: '#FFF'}}/>
       </View>
     );
   }

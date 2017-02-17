@@ -1,15 +1,22 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../../actions/session'
 import autobind from 'autobind-decorator'
-import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux'
 import { Content, Button, Form, Item, Input, Text } from 'native-base'
+import Spinner from 'react-native-loading-spinner-overlay'
 
-@connect(null, {login})
+function mapStateToProps(state) {
+  return {
+    loading: state.session.loading
+  };
+}
+
+@connect(mapStateToProps, {login})
 class Login extends Component {
   state = {
-    username: 'allen',
-    password: 'asdfasdf'
+    username: '',
+    password: ''
   };
 
   render() {
@@ -41,6 +48,7 @@ class Login extends Component {
             <Text>Sign up</Text>
           </Button>
         </Form>
+        <Spinner visible={this.props.loading} textContent={'Logging in...'} textStyle={{color: '#FFF'}}/>
       </Content>
     );
   }
