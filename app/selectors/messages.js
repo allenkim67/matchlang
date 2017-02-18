@@ -27,5 +27,5 @@ export const messagesSelector = createSelector(
 
 export const parentMessages = createSelector(
   messagesSelector,
-  messages => values(messages.parentOrder.map(i => messages.parents[i]))
+  messages => values(messages.parentOrder.map(i => messages.parents[i])).reverse()
 );

@@ -62,6 +62,7 @@
     "react-multi-toggle": "^1.0.15",
     "react-native": "^0.41.2",
     "react-native-config": "^0.1.0",
+    "react-native-invertible-scroll-view": "^1.0.0",
     "react-native-loading-spinner-overlay": "^0.4.1",
     "react-native-push-notification": "^2.2.1",
     "react-native-router-flux": "^3.36.0",

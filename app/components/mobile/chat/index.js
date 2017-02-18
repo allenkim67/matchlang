@@ -9,6 +9,7 @@ import { Content, Input, Item } from 'native-base'
 import { View, Dimensions, ListView } from 'react-native'
 import Message from './message'
 import Spinner from 'react-native-loading-spinner-overlay'
+import InvertibleScrollView from 'react-native-invertible-scroll-view'
 
 function mapStateToProps(state) {
   return {
@@ -48,8 +49,10 @@ class Chat extends Component {
     return (
       <View style={style.container}>
         <ListView
+          renderScrollComponent={props => <InvertibleScrollView {...props} inverted />}
           enableEmptySections={true}
           style={style.list}
+          contentContainerStyle={style.listContent}
           dataSource={ds.cloneWithRows(this.props.parentMessages)}
           renderRow={this.message}
         />
@@ -84,6 +87,10 @@ const style = {
   },
   list: {
     flex: 1
+  },
+  listContent: {
+    flexGrow: 1,
+    justifyContent: 'flex-end'
   },
   inputContainer: {
     margin: 4
