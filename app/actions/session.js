@@ -11,7 +11,7 @@ function loginSuccess(dispatch, getState) {
   dispatch(connectSocket());
   dispatch(fetchConvos());
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' && process.env.PLATFORM === 'web') {
     ga('set', 'userId', String(getState().session.user.id));
   }
 
