@@ -5741,6 +5741,10 @@ react-native-experimental-navigation@0.26.x:
     fbjs "^0.8.1"
     react-addons-pure-render-mixin "^15.0.2"
 
+react-native-fcm@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-fcm/-/react-native-fcm-6.0.3.tgz#3428bbf66e9f5ecc45dddc3eb4eb315d8151d85b"
+
 react-native-invertible-scroll-view@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-invertible-scroll-view/-/react-native-invertible-scroll-view-1.0.0.tgz#60ceb384dc950c34eba3a5aeda39f97cdc7d4e23"
@@ -5757,10 +5761,6 @@ react-native-keyboard-aware-scroll-view@0.2.0:
 react-native-loading-spinner-overlay@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-native-loading-spinner-overlay/-/react-native-loading-spinner-overlay-0.4.1.tgz#f1ebc7df6a7f8b9d06588fb51b5554565bb3cddb"
-
-react-native-push-notification@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-2.2.1.tgz#9b392cee8f5223a1e1772c9a88c95742549fcfc3"
 
 react-native-router-flux@^3.36.0:
   version "3.37.0"

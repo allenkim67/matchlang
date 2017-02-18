@@ -1,23 +1,15 @@
 import React, { Component } from 'react'
-import PushNotification from 'react-native-push-notification'
+import FCM, { FCMEvent } from 'react-native-fcm';
 
 export default class extends Component {
   componentDidMount() {
-    PushNotification.configure({
-      onRegister: token => {
-        this.props.registerMobile(token.token);
-      },
-
-      onNotification: notification => {
-        alert(JSON.stringify(notification));
-
-        PushNotification.localNotification({
-          message: notification.data.message
-        });
-      },
-
-      senderID: "727270660645"
+    FCM.getFCMToken().then(token => {
+      this.props.registerMobile(token);
     });
+
+    FCM.on(FCMEvent.Notification, async notif => {
+      alert(JSON.stringify(notif));
+    })
   }
 
   render() {
