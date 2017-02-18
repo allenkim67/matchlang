@@ -1,6 +1,7 @@
 const Bimap = require('../lib/bimap');
 const Convo = require('./models/convo');
 const GroupConvo = require('./models/group-convo');
+const Device = require('./models/device');
 const socketIo = require('socket.io');
 const auth = require('./auth');
 const _ = require('lodash');
@@ -47,18 +48,8 @@ module.exports = http => {
       logout();
     });
 
-    socket.on('register_mobile', id => {
-      const data = {
-        data: {
-          message: 'hello world'
-        }
-      };
-      const message = new gcm.Message({data});
-      const regTokens = [id];
-
-      sender.send(message, { registrationTokens: regTokens }, function (err, response) {
-        if (err) logger.debug('send mobile error', err);
-      });
+    socket.on('register_mobile', async ({token, userId}) => {
+      await Device.upsert({token, user_id: userId});
     });
 
     socket.on('message', async ({message, user}) => {
@@ -74,6 +65,23 @@ module.exports = http => {
         const receiver_id = message.sender_id === convo.teacher_id ? convo.student_id : convo.teacher_id;
         const userId = message.sender_id !== user.id ? message.sender_id : receiver_id;
         sids = socketMap.getValue(userId) || [];
+
+        sender.send(
+          new gcm.Message({
+            collapseKey: 'demo',
+            priority: 'high',
+            contentAvailable: true,
+            timeToLive: 3,
+            notification: {
+              title: 'new message', body: message.content
+            },
+            data: {
+              message: message.content
+            }
+          }),
+          { registrationTokens: await Device.findByUserId(receiver_id) },
+          () => {}
+        );
       }
 
       if (sids.length) {
