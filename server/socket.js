@@ -68,15 +68,14 @@ module.exports = http => {
 
         sender.send(
           new gcm.Message({
-            collapseKey: 'demo',
-            priority: 'high',
-            contentAvailable: true,
-            timeToLive: 3,
-            notification: {
-              title: 'new message', body: message.content
-            },
             data: {
-              message: message.content
+              custom_notification: {
+                title: 'New message',
+                body: message.content,
+                priority: 'high',
+                show_in_foreground: true,
+                sound: 'default'
+              }
             }
           }),
           { registrationTokens: await Device.findByUserId(receiver_id) },
