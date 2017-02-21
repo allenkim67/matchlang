@@ -1,7 +1,7 @@
 import axios from '../axios'
 import { groupedScheduledGroups } from '../normalizers/group-convos'
 
-export const fetchGroupConvos = ({scheduled, offset}) => async dispatch => {
+export const fetchGroupConvos = ({scheduled, offset=0}) => async dispatch => {
   dispatch({type: 'FETCH_GROUP_CONVOS_START'});
   const type = scheduled ? 'scheduled' : 'regular';
   let convos = (await axios.get(`convos/group/${type}`, {params: {offset}})).data;

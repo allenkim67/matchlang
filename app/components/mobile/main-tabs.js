@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view'
 import Icon from 'react-native-vector-icons/Entypo'
 import UserBrowser from './user-browser'
+import Groups from './groups'
 import Convos from './convos'
 import { primaryColor } from './style-theme'
 import PushNotification from './push-notification'
@@ -42,7 +43,7 @@ export default class MainTabs extends Component {
     routes: [
       { key: 'search', icon: 'magnifying-glass' },
       { key: 'convos', icon: 'chat' },
-      { key: 'study', icon: 'graduation-cap' },
+      { key: 'study', icon: 'users' },
       { key: 'more', icon: 'dots-three-horizontal' }
     ]
   };
@@ -54,7 +55,7 @@ export default class MainTabs extends Component {
       case 'convos':
         return <Convos/>;
       case 'study':
-        return null;
+        return <Groups/>;
       case 'more':
         return null;
       default:
