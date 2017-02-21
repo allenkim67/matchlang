@@ -6,10 +6,12 @@ import { currentConvo } from '../../../selectors/convos'
 import { sendMessage } from '../../../actions/messages'
 import { setCurrentConvo } from '../../../actions/convos'
 import { Content, Input, Item } from 'native-base'
-import { View, Dimensions, ListView } from 'react-native'
+import { View, Dimensions, ListView, TouchableOpacity } from 'react-native'
 import Message from './message'
 import Spinner from 'react-native-loading-spinner-overlay'
 import InvertibleScrollView from 'react-native-invertible-scroll-view'
+import Icon from 'react-native-vector-icons/Entypo'
+import questions from './questions.json'
 
 function mapStateToProps(state) {
   return {
@@ -33,7 +35,7 @@ class Chat extends Component {
   render() {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id !== r2.id});
     const input = (
-      <View>
+      <View style={{flexDirection: 'row'}}>
         <Item regular style={style.inputContainer}>
           <Input
             style={style.input}
@@ -43,6 +45,10 @@ class Chat extends Component {
             value={this.state.inputValue}
           />
         </Item>
+
+        <TouchableOpacity onPress={this.generateTopic}>
+          <Icon name='new' size={30} style={style.iceBreaker}/>
+        </TouchableOpacity>
       </View>
     );
 
@@ -78,6 +84,13 @@ class Chat extends Component {
   onChangeHandler(text) {
     this.setState({inputValue: text});
   }
+
+  @autobind
+  generateTopic() {
+    const rand = questions[Math.floor(Math.random() * questions.length)];
+
+    this.setState({inputValue: rand});
+  }
 }
 
 const style = {
@@ -93,11 +106,18 @@ const style = {
     justifyContent: 'flex-end'
   },
   inputContainer: {
+    flex: 1,
     margin: 4
   },
   input: {
     padding: 10,
     height: 40
+  },
+  iceBreaker: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 5,
+    paddingRight: 5
   }
 };
 
