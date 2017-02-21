@@ -62,6 +62,11 @@ app.get('/*', async (req, res) => {
   let privateConvos = [];
   let groupConvos = [];
 
+  if (req.path !== '/signup' && (!user || !user.id)) {
+    res.sendFile(__dirname + '/public/home.html');
+    return
+  }
+
   if (user && user.id) {
     user = await User
       .query()
