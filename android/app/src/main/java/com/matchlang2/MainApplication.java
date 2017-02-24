@@ -1,4 +1,4 @@
-package com.matchlang;
+package com.matchlang2;
 
 import android.app.Application;
 import android.util.Log;
