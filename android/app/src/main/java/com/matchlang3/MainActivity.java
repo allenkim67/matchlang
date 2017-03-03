@@ -1,4 +1,4 @@
-package com.matchlang2;
+package com.matchlang3;
 
 import com.facebook.react.ReactActivity;
 

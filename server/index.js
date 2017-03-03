@@ -94,8 +94,7 @@ if (process.env.NODE_ENV === 'production') {
    server = require('https')
     .createServer({
       key: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/privkey.pem'),
-      cert: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/fullchain.pem'),
-      ca: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/chain.pem')
+      cert: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/fullchain.pem')
     }, app)
     .listen(443, () => console.log('listening at port 443'));
 
