@@ -62,11 +62,6 @@ app.get('/*', async (req, res) => {
   let privateConvos = [];
   let groupConvos = [];
 
-  if (req.path !== '/signup' && (!user || !user.id)) {
-    res.sendFile(__dirname + '/public/home.html');
-    return
-  }
-
   if (user && user.id) {
     user = await User
       .query()
@@ -90,8 +85,8 @@ app.get('/*', async (req, res) => {
 let server;
 
 if (process.env.NODE_ENV === 'production') {
-  //// listen https
-   server = require('https')
+  // listen https
+  server = require('https')
     .createServer({
       key: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/privkey.pem'),
       cert: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/fullchain.pem')
