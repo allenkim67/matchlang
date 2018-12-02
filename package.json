@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "nightwatch",
-    "build": "webpack --mode=production",
+    "build": "webpack -p",
     "migrate": "knex migrate:latest --knexfile server/knexfile.js",
     "prod-server": "pm2 stop matchlang; pm2 start server/server.bundle.js --name=matchlang",
     "start": "PLATFORM=web npm run migrate && npm run build && npm run prod-server",
