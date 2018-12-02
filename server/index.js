@@ -102,7 +102,7 @@ let server;
 // } else {
   server = require('http')
     .createServer(app)
-    .listen(3000, () => console.log('listening at port 3000'));
+    .listen(8083, () => console.log('listening at port 8083'));
 // }
 
 socketSetup(server);
