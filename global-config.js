@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'production' || process.env.PLATFORM !== 'web') {
   envConfig = {
     webpackDevtool: null,
     messagesLimit: 50,
-    baseUrl: 'https://matchlang.com',
+    baseUrl: 'http://matchlang.xyz',
     usersPerPage: 15,
     groupsPerPage: 15
   };
