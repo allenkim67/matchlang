@@ -84,26 +84,26 @@ app.get('/*', async (req, res) => {
 
 let server;
 
-if (process.env.NODE_ENV === 'production') {
-  // listen https
-  server = require('https')
-    .createServer({
-      key: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/privkey.pem'),
-      cert: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/fullchain.pem')
-    }, app)
-    .listen(443, () => console.log('listening at port 443'));
+// if (process.env.NODE_ENV === 'production') {
+//   // listen https
+//   server = require('https')
+//     .createServer({
+//       key: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/privkey.pem'),
+//       cert: fs.readFileSync('/etc/letsencrypt/live/matchlang.com/fullchain.pem')
+//     }, app)
+//     .listen(443, () => console.log('listening at port 443'));
 
-  // redirect to https
-  const http = express()
-    .get('*',function(req, res){
-      res.redirect(`https://${req.hostname}${req.url}`);
-    })
-    .listen(80);
-} else {
+//   // redirect to https
+//   const http = express()
+//     .get('*',function(req, res){
+//       res.redirect(`https://${req.hostname}${req.url}`);
+//     })
+//     .listen(80);
+// } else {
   server = require('http')
     .createServer(app)
     .listen(3000, () => console.log('listening at port 3000'));
-}
+// }
 
 socketSetup(server);
 
